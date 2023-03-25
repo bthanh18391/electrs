@@ -252,7 +252,7 @@ impl Config {
             ResolvAddr::resolve_or_exit,
         );
         let daemon_p2p_addr: SocketAddr = config.daemon_p2p_addr.map_or(
-            (DEFAULT_SERVER_ADDRESS, default_daemon_p2p_port).into(),
+            (DEFAULT_SERVER_ADDRESS1, default_daemon_p2p_port).into(),
             ResolvAddr::resolve_or_exit,
         );
         let electrum_rpc_addr: SocketAddr = config.electrum_rpc_addr.map_or(

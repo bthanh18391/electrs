@@ -14,7 +14,7 @@ use std::time::Duration;
 
 pub const ELECTRS_VERSION: &str = env!("CARGO_PKG_VERSION");
 const DEFAULT_SERVER_ADDRESS: [u8; 4] = [127, 0, 0, 1]; // by default, serve on IPv4 localhost
-const DEFAULT_SERVER_ADDRESS1: [u8; 4] = [192, 168, 1, 199]; // by default, serve on IPv4 localhost
+const DEFAULT_SERVER_ADDRESS1: [u8; 4] = [192,168,1, 199]; // by default, serve on IPv4 localhost
 mod internal {
     #![allow(clippy::enum_variant_names)]
     #![allow(clippy::unnecessary_lazy_evaluations)]
@@ -248,10 +248,9 @@ impl Config {
         };
 
         let daemon_rpc_addr: SocketAddr = config.daemon_rpc_addr.map_or(
-            (DEFAULT_SERVER_ADDRESS1, default_daemon_rpc_port)).into(),
+            (DEFAULT_SERVER_ADDRESS1, default_daemon_rpc_port).into(),
             ResolvAddr::resolve_or_exit,
         );
-
         let daemon_p2p_addr: SocketAddr = config.daemon_p2p_addr.map_or(
             (DEFAULT_SERVER_ADDRESS, default_daemon_p2p_port).into(),
             ResolvAddr::resolve_or_exit,
